@@ -1,0 +1,25 @@
+https://startupnextdoor.com/flash-cards-site-complete/?src=gah-arch
+https://laracasts.com/series/laravel-from-scratch-2017/episodes/3?autoplay=true
+
+php artisan serve - start development laravel server
+php artisan migrate - create database for framework/run migration
+php artisan make:migration create_tasks_table
+php artisan make:model Task
+
+|Dependency Injection
+|-Constructor Injection (dependencies are passed as arguments to the classes constructor)
+|-Setter Injection (advantage: can add dependencies after object was created)
+|-Interface Injection ( the method(s) to inject a dependency is defined in an interface)
+
+|Dependency Inversion (instead of depending on a concrete instance we can also depend on abstractions)
+|it is a core concept of the IoC-Container
+
+|IoC Container (is a component that knows how instances are created and knows of all their underlying
+|dependencies and how to resolve them)
+
+TESTS
+vendor/bin/phpunit                                  run phpunit
+vendor/bin/phpunit tests/Feature/ExampleTest.php    test feature via phpunit
+
+Для тестов указываем настройки среды(БД в том числе в /phpunit.xml)
+чтобы применить миграцию БД(создать тестовую)- укажи нужную БД в .env
