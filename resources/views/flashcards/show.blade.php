@@ -37,16 +37,13 @@
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">Cover your page.</h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+            <h1 class="cover-heading">Card 1 [type]</h1>
+            <p class="lead">{{ $flashcard->question}}</p>
+            <p class="lead">{{ $flashcard->answer}}</p>
             <p class="lead">
-              <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+              <a href="#" class="btn btn-lg btn-secondary">Flip</a>
             </p>
           </div>
-
-          {{ $flashcard->question }}
-          <br>
-          {{ $flashcard->answer }}
 
           <div class="mastfoot">
             <div class="inner">
