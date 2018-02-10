@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Cover Template for Bootstrap</title>
+    <title>Flashlearn</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/public/css/bootstrap.min.css" rel="stylesheet">
@@ -27,7 +27,7 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">Cover</h3>
+              <h3 class="masthead-brand">Flashlearn</h3>
               <nav class="nav nav-masthead">
                 <a class="nav-link active" href="#">Home</a>
                 <a class="nav-link" href="#">Features</a>
@@ -43,6 +43,10 @@
               <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
             </p>
           </div>
+
+          {{ $flashcard->question }}
+          <br>
+          {{ $flashcard->answer }}
 
           <div class="mastfoot">
             <div class="inner">

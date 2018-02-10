@@ -20,7 +20,7 @@ class FlashcardsController extends Controller
 
         //dd($flashcard);
         //dd(compact('flashcard'));
-        return view('flashcards.show');
+        return view('flashcards.show', compact('flashcard'));
     }
 
 
