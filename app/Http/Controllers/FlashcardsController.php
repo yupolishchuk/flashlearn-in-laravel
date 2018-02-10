@@ -40,4 +40,11 @@ class FlashcardsController extends Controller
 
         return redirect('/');
     }
+
+    public function delete($id)
+    {
+        $flashcard = Flashcard::find($id);
+        $flashcard->delete();
+        return redirect('/');
+    }
 }
