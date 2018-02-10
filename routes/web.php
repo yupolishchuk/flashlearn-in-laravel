@@ -21,5 +21,10 @@
 // Route::get('/posts', 'PostsController@index')->name('home');
 // Route::get('/posts/create', 'PostsController@create');
 
+// Route::get('user/{id}/{name}', function ($id, $name) {
+//     //
+// })->where(['id' => '[0-9]+', 'name' => '[a-z]+']);
+
 Route::get('/', 'FlashcardsController@index'); // по умолчанию: показываем список
-Route::get('/flashcards/{flashcard}', 'FlashcardsController@show');
+Route::get('/flashcards/{id}', 'FlashcardsController@show')->where(['id' => '[0-9]']);
+Route::get('/flashcards/create', 'FlashcardsController@create');

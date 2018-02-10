@@ -8,7 +8,7 @@ class FlashcardsController extends Controller
 {
     public function index()
     {
-
+        // решить что будет на главной странице
         echo 'Flashcards controller index';
         // $flashcards = Flashcard::latest()->get();
         // return view('flashcards.index', compact('flashcards'));
@@ -17,10 +17,13 @@ class FlashcardsController extends Controller
     public function show($id)
     {
         $flashcard = Flashcard::find($id);
-
-        //dd($flashcard);
-        //dd(compact('flashcard'));
         return view('flashcards.show', compact('flashcard'));
+    }
+
+    public function create()
+    {
+        die('flashcard create');
+        return view('flashcards.create');
     }
 
 
