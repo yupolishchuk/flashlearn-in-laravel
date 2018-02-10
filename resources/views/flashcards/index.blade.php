@@ -36,23 +36,16 @@
             </div>
           </div>
 
-          <form method="POST" action="/flashcards">
-            {{ csrf_field() }}
+          <div class="inner cover">
+            <h1 class="cover-heading">Card 1 [type]</h1>
+                Info about flashcards:<br>
+                    -count (known/unknown)<br>
+                    -caregories<br>
 
-            <div class="form-group">
-              <label for="question">Question:</label>
-              <textarea rows="5" class="form-control" id="question" name="question"></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="question">Answer:</label>
-              <textarea rows="10" class="form-control" id="answer" name="answer"></textarea>
-            </div>
-
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-          </form>
+            <p class="lead">
+              <a href="#" class="btn btn-lg btn-secondary">Flip</a>
+            </p>
+          </div>
 
           <div class="mastfoot">
             <div class="inner">

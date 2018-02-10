@@ -8,10 +8,9 @@ class FlashcardsController extends Controller
 {
     public function index()
     {
-        // решить что будет на главной странице
-        echo 'Flashcards controller index';
         // $flashcards = Flashcard::latest()->get();
         // return view('flashcards.index', compact('flashcards'));
+        return view('flashcards.index');
     }
 
     public function show($id)
@@ -33,7 +32,7 @@ class FlashcardsController extends Controller
 
         $flashcard->question = request('question');
         $flashcard->answer = request('answer');
-        
+
         $flashcard->known = 1;
         $flashcard->category_id = 1;
         $flashcard->user_id = 1;
