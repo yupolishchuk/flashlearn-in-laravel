@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+// Route::get('/tasks', 'TasksController@index');
+// Route::get('/tasks/{task}', 'TasksController@show');
+// Route::get('/posts', 'PostsController@index')->name('home');
+// Route::get('/posts/create', 'PostsController@create');
+
+Route::get('/', 'FlashcardsController@index'); // по умолчанию: показываем список
+Route::get('/flashcards/{flashcard}', 'FlashcardsController@show');
