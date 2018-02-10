@@ -37,13 +37,23 @@
             </div>
           </div>
 
-          <div class="inner cover">
-            <h1 class="cover-heading">Card 1 [type]</h1>
+          <form method="POST" action="/flashcards">
+            {{ csrf_field() }}
 
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-secondary">Flip</a>
-            </p>
-          </div>
+            <div class="form-group">
+              <label for="question">Question:</label>
+              <input type="textarea" class="form-control" id="question" name="question">
+            </div>
+
+            <div class="form-group">
+              <label for="question">Answer:</label>
+              <input type="textarea" class="form-control" id="answer" name="answer">
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
 
           <div class="mastfoot">
             <div class="inner">

@@ -28,3 +28,4 @@
 Route::get('/', 'FlashcardsController@index'); // по умолчанию: показываем список
 Route::get('/flashcards/{id}', 'FlashcardsController@show')->where(['id' => '[0-9]']);
 Route::get('/flashcards/create', 'FlashcardsController@create');
+Route::post('/flashcards', 'FlashcardsController@store');

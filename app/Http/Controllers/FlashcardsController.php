@@ -22,9 +22,23 @@ class FlashcardsController extends Controller
 
     public function create()
     {
-        die('flashcard create');
         return view('flashcards.create');
     }
 
+    // POST /flashcards
+    public function store()
+    {
+        //dd(request()->all());
+        $flashcard = new \App\Flashcard;
 
+        $flashcard->question = request('question');
+        $flashcard->answer = request('answer');
+        
+        $flashcard->known = 1;
+        $flashcard->category_id = 1;
+        $flashcard->user_id = 1;
+        $flashcard->save();
+
+        return redirect('/');
+    }
 }
