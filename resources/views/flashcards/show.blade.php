@@ -39,10 +39,10 @@
           <div class="inner cover">
             <h1 class="cover-heading">Card 1 [type]</h1>
             <p class="lead">{{ $flashcard->question}}</p>
-            <p class="lead">{{ $flashcard->answer}}</p>
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-secondary">Flip</a>
-            </p>
+            <p style="display: none" id="answer" class="lead">{{ $flashcard->answer}}</p>
+          <p class="lead">
+            <button id="flip-button" class="btn btn-lg btn-secondary">Flip</button>
+          </p>  
           </div>
 
           <div class="mastfoot">
@@ -63,6 +63,10 @@
     <script src="/public/js/jquery.slim.min.js"></script>
     <script src="/public/js/tether.min.js"></script>
     <script src="/public/js/bootstrap.min.js"></script>
-
+    <script>
+      $('#flip-button').on('click', function (){
+        $('#answer').toggle('slow');
+      });
+    </script>
   </body>
 </html>
