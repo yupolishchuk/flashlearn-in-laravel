@@ -72,8 +72,6 @@
     <script src="/public/js/jquery.slim.min.js"></script>
     <script src="/public/js/tether.min.js"></script>
     <script src="/public/js/bootstrap.min.js"></script>
-    <script>
-      alert('hi!');
-    </script>
+
   </body>
 </html>

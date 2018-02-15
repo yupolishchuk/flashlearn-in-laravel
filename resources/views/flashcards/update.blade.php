@@ -36,14 +36,23 @@
             </div>
           </div>
 
-          <div class="inner cover">
-            <h1 class="cover-heading">Card 1 [type]</h1>
-            <p class="lead">{{ $flashcard->question}}</p>
-            <p style="display: none" id="answer" class="lead">{{ $flashcard->answer}}</p>
-          <p class="lead">
-            <button id="flip-button" class="btn btn-lg btn-secondary">Flip</button>
-          </p>  
-          </div>
+          <form method="POST" action="/flashcards">
+            {{ csrf_field() }}
+
+            <div class="form-group">
+              <label for="question">Question:</label>
+              <textarea rows="5" class="form-control" id="question" name="question"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="question">Answer:</label>
+              <textarea rows="10" class="form-control" id="answer" name="answer"></textarea>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
 
           <div class="mastfoot">
             <div class="inner">
@@ -64,9 +73,7 @@
     <script src="/public/js/tether.min.js"></script>
     <script src="/public/js/bootstrap.min.js"></script>
     <script>
-      $('#flip-button').on('click', function () {
-        $('#answer').toggle();
-      });
+      alert('hi!');
     </script>
   </body>
 </html>

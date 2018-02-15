@@ -47,4 +47,11 @@ class FlashcardsController extends Controller
         $flashcard->delete();
         return redirect('/');
     }
+
+    public function testRawQuery()
+    {
+        $flashcard = new Flashcard;
+        $res = $flashcard->testRawQuery();
+        dd($res);
+    }
 }
