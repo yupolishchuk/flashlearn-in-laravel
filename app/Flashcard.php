@@ -10,7 +10,8 @@ class Flashcard extends Model
       public function testRawQuery()
       {
         $flashcards = DB::table('flashcards')
-        ->selectRaw('select * from flashcards');
+        ->selectRaw('*')
+        ->get();
         return $flashcards;  
       }
 }
