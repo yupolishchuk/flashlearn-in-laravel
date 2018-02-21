@@ -36,7 +36,7 @@
             </div>
           </div>
 
-          <form method="POST" action="/flashcards">
+          <form method="POST" action="/flashcards/create">
             {{ csrf_field() }}
 
             <div class="form-group">

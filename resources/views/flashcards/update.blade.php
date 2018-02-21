@@ -41,12 +41,14 @@
 
             <div class="form-group">
               <label for="question">Question:</label>
-              <textarea rows="5" class="form-control" id="question" name="question"></textarea>
+              <textarea rows="5" class="form-control" id="question" name="question"
+              >{{ $flashcard->question}}</textarea>
             </div>
 
             <div class="form-group">
               <label for="question">Answer:</label>
-              <textarea rows="10" class="form-control" id="answer" name="answer"></textarea>
+              <textarea rows="10" class="form-control" id="answer" name="answer"
+              >{{ $flashcard->answer }}</textarea>
             </div>
 
             <div class="form-group">
@@ -72,8 +74,6 @@
     <script src="/public/js/jquery.slim.min.js"></script>
     <script src="/public/js/tether.min.js"></script>
     <script src="/public/js/bootstrap.min.js"></script>
-    <script>
-      alert('hi!');
-    </script>
+
   </body>
 </html>

@@ -24,6 +24,12 @@ class FlashcardsController extends Controller
         return view('flashcards.create');
     }
 
+    public function update($id)
+    {
+        $flashcard = Flashcard::find($id);
+        return view('flashcards.update', compact('flashcard'));
+    }
+
     // POST /flashcards
     public function store()
     {
