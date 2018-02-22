@@ -36,7 +36,7 @@
             </div>
           </div>
 
-          <form method="POST" action="/flashcards">
+          <form method="POST" action="/flashcards/update/{{ $flashcard->id }}">
             {{ csrf_field() }}
 
             <div class="form-group">

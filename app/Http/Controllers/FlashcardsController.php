@@ -26,8 +26,23 @@ class FlashcardsController extends Controller
 
     public function update($id)
     {
-        $flashcard = Flashcard::find($id);
+        if (empty(request('question'))) {
+            $flashcard = Flashcard::find($id);
         return view('flashcards.update', compact('flashcard'));
+        } else {
+            $flashcard = Flashcard::find($id);
+
+            $flashcard->question = request('question');
+            $flashcard->answer = request('answer');
+    
+            $flashcard->known = 1;
+            $flashcard->category_id = 1;
+            $flashcard->user_id = 1;
+            $flashcard->update();
+    
+            return redirect('/');
+        }
+        
     }
 
     // POST /flashcards

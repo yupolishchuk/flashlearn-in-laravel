@@ -27,11 +27,12 @@
 
 Route::get('/', 'FlashcardsController@index'); // по умолчанию: показываем список
 Route::get('/flashcards/{id}', 'FlashcardsController@show')->where(['id' => '[0-9]']);
+
 Route::get('/flashcards/create', 'FlashcardsController@create');
 Route::post('/flashcards/create', 'FlashcardsController@store');
-//Route::get('/flashcards/update/{id}', 'FlashcardsController@update')->where(['id' => '[0-9]']);
-// Route::post('/flashcards/update', '');
-//Route::post('/flashcards/update', 'FlashcardsController@store'); // тот же метод что и на 
-//сохранение не может быть потому что учитываем конкретный id
+
+Route::get('/flashcards/update/{id}', 'FlashcardsController@update')->where(['id' => '[0-9]']);
+Route::post('/flashcards/update/{id}', 'FlashcardsController@update')->where(['id' => '[0-9]']);
+
 Route::get('/flashcards/delete/{id}', 'FlashcardsController@delete')->where(['id' => '[0-9]']);
 Route::get('/testdb', 'FlashcardsController@testRawQuery');
