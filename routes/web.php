@@ -25,6 +25,9 @@
 //     //
 // })->where(['id' => '[0-9]+', 'name' => '[a-z]+']);
 
+/*
+* Flashcards
+*/
 Route::get('/', 'FlashcardsController@index'); // по умолчанию: показываем список
 Route::get('/flashcards/{id}', 'FlashcardsController@show')->where(['id' => '[0-9]']);
 
@@ -36,3 +39,9 @@ Route::post('/flashcards/update/{id}', 'FlashcardsController@update')->where(['i
 
 Route::get('/flashcards/delete/{id}', 'FlashcardsController@delete')->where(['id' => '[0-9]']);
 Route::get('/testdb', 'FlashcardsController@testRawQuery');
+
+/*
+* Categories
+*/
+Route::get('/categories', 'CategoriesController@list'); // categories list
+
