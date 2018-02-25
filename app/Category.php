@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class FlashcardCategory extends Model
+class Category extends Model
 {
 
 }
