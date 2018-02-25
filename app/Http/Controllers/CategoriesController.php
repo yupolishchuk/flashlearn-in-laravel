@@ -9,6 +9,7 @@ class CategoriesController extends Controller
     public function list()
     {
         $categories = FlashcardCategory::all();
-        dd($categories);
+        //dd($categories);
+        return view('categories.list', compact('categories'));
     }
 }
