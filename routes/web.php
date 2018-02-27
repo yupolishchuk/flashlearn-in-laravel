@@ -43,5 +43,5 @@ Route::get('/testdb', 'FlashcardsController@testRawQuery');
 /*
 * Categories
 */
-Route::get('/categories', 'CategoriesController@list'); // categories list
+Route::get('/categories', 'CategoriesController@list'); // list of categories
 

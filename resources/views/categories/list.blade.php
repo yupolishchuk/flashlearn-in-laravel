@@ -40,7 +40,7 @@
           <div class="inner cover">
             <p class="lead">{{ $category->name }}</p>
           <p class="lead">
-            <button id="flip-button" class="btn btn-lg btn-secondary">Flashcards 10/12</button>
+            <button id="flip-button" class="btn btn-lg btn-secondary">Flashcards {{ $category->flashcards }}</button>
           </p>  
           </div>
         @endforeach
