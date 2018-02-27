@@ -38,9 +38,10 @@
 
         @foreach($categories as $category)
           <div class="inner cover">
-            <p class="lead">{{ $category->name }}</p>
-          <p class="lead">
-            <button id="flip-button" class="btn btn-lg btn-secondary">Flashcards {{ $category->flashcards }}</button>
+            <p class="lead">{{ $category->name }}
+            <button id="flip-button" class="btn btn-lg btn-secondary">Flashcards {{ $category->flashcards }}
+              <span class="count-known" style="color:green">51</span>/<span class="count-unknown" style="color:firebrick">73</span>
+            </button>
           </p>  
           </div>
         @endforeach
