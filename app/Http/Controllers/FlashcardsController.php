@@ -19,6 +19,12 @@ class FlashcardsController extends Controller
         return view('flashcards.show', compact('flashcard'));
     }
 
+    public function list($id)
+    {
+        $flashcards = Flashcard::all()->where('category_id', $id);
+        dd($flashcards);
+    }
+
     public function create()
     {
         return view('flashcards.create');
