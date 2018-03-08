@@ -30,7 +30,11 @@
 */
 Route::get('/', 'FlashcardsController@index'); // по умолчанию: показываем список
 Route::get('/flashcards/{id}', 'FlashcardsController@show')->where(['id' => '[0-9]']);
-Route::get('/flashcards/category/{id}', 'FlashcardsController@list')->where(['id' => '[0-9]']);
+// переписать урлы, добавить параметры
+Route::get('/flashcards/category/learn/{id}', 'FlashcardsController@learning')->where(['id' => '[0-9]']);
+Route::get('/flashcards/category/list/{id}', 'FlashcardsController@list')->where(['id' => '[0-9]']);
+
+Route::get('/test', 'FlashcardsController@test');
 
 Route::get('/flashcards/create', 'FlashcardsController@create');
 Route::post('/flashcards/create', 'FlashcardsController@store');

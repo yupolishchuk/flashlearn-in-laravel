@@ -19,10 +19,29 @@ class FlashcardsController extends Controller
         return view('flashcards.show', compact('flashcard'));
     }
 
+    // Переписать: убрать лишнюю загрузку флешкарт
+    public function learning($id)
+    {
+        //dd($request);
+        //dd(request());
+        $flashcards = Flashcard::all()->where('category_id', $id);
+
+        return view('flashcards.learn', compact('flashcards'));
+    }
+
     public function list($id)
     {
+        //dd($request);
+        //dd(request());
         $flashcards = Flashcard::all()->where('category_id', $id);
-        dd($flashcards);
+
+        return compact('flashcards');
+    }
+
+    public function test(Request $request)
+    {
+        $response = 'Hi from test ' . $request->method() . "\r\n";
+        return $response;
     }
 
     public function create()
