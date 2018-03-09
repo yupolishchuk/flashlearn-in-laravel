@@ -35,14 +35,16 @@
               </nav>
             </div>
           </div>
-
-          <div class="inner cover">
-            <h1 class="cover-heading">Card 1 [type]</h1>
-            <p class="lead"></p>
-            <p style="display: none" id="answer" class="lead"></p>
-          <p class="lead">
-            <button id="flip-button" class="btn btn-lg btn-secondary">Flip</button>
-          </p>  
+          <div id="flashcard">
+            <div class="inner cover">
+              <h1 class="cover-heading">Card 1 [type]</h1>
+              <p class="lead"></p>
+              <p id="question" class="lead"></p>
+              <p style="display: none" id="answer" class="lead"></p>
+              <p class="lead">
+                <button id="flip-button" class="btn btn-lg btn-secondary">Flip</button>
+              </p>  
+            </div>
           </div>
 
           <div class="mastfoot">
@@ -50,12 +52,8 @@
               <p>Cover template for <a href="https://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
             </div>
           </div>
-        
-          <div id="flashcards" data={{ $flashcards }}></div> 
         </div>
-
       </div>
-
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -71,19 +69,42 @@
     <script src="/public/js/bootstrap.min.js"></script>
     <script>
 
-      
       $(document).ready(function() {
         $('#flip-button').on('click', function() {
           $('#answer').toggle();
         });
         
-        
-        $.get( "/flashcards/category/list/1", function(flashcards) {
+        // Рабочий вариант
+        // $.get("/flashcards/category/list/1", function(flashcards) {
+        //   console.log(flashcards);
+        // });
+
+        // Рабочий вариант 2
+        $.ajax({
+          method: "GET",
+          url: "/flashcards/category/list/1",
+          cache: false})
+          .done(function(msg) {
+            parseData(msg);
+          });
+
+        function parseData(msg) {
+          flashcards = msg.flashcards;
           console.log(flashcards);
-        });
+          // console.log(flashcards[0].question); так обращаемся к элементам
+
+          insertData(flashcards[0]); 
+        }
+
+        function insertData(flashcard) {
+          $('#flashcard')
+            .find('#question').text(flashcard.question)
+            .end()
+            .find('#answer').text(flashcard.answer);
+
+        }
 
       });
-
 
     </script>
   </body>
