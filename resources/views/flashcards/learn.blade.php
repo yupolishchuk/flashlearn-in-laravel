@@ -43,6 +43,7 @@
               <p style="display: none" id="answer" class="lead"></p>
               <p class="lead">
                 <button id="flip-button" class="btn btn-lg btn-secondary">Flip</button>
+                <button id="next-button" class="btn btn-lg btn-secondary">Next</button>
               </p>  
             </div>
           </div>
@@ -64,44 +65,77 @@
       src="https://code.jquery.com/jquery-3.3.1.js"
       integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
       crossorigin="anonymous">
-    </script>
+    </script><!--Скачай нормальный jQuery -->
     <script src="/public/js/tether.min.js"></script>
     <script src="/public/js/bootstrap.min.js"></script>
     <script>
 
       $(document).ready(function() {
+        // Show/hide answer
         $('#flip-button').on('click', function() {
           $('#answer').toggle();
         });
         
-        // Рабочий вариант
-        // $.get("/flashcards/category/list/1", function(flashcards) {
-        //   console.log(flashcards);
-        // });
-
-        // Рабочий вариант 2
+        // получаем json всех флешкарт из категории
         $.ajax({
           method: "GET",
           url: "/flashcards/category/list/1",
           cache: false})
           .done(function(msg) {
-            parseData(msg);
+            parseData(msg); 
           });
 
-        function parseData(msg) {
-          flashcards = msg.flashcards;
-          console.log(flashcards);
-          // console.log(flashcards[0].question); так обращаемся к элементам
+        var currentCardKey;
+        var flashcards;
+        var availableCardKeys;
 
-          insertData(flashcards[0]); 
+        function parseData(msg) {
+          flashcards = msg.flashcards; // objects
+          availableCardKeys = Object.keys(flashcards); // array
+          var firstCardKey = giveFirstCardKey(flashcards, availableCardKeys);
+          showCard(flashcards[firstCardKey]); // передаем key первой карты (убедись, он может быть != 0)
         }
 
-        function insertData(flashcard) {
+        function giveFirstCardKey(flashcards, availableCardKeys) {
+            for (var a in flashcards) {
+                currentCardKey = a;
+                return a;
+            }
+        }
+
+        // по клику показываем следующую карту
+        $('#next-button').on('click', function() {
+          var nextCardKey = giveNextCardKey(availableCardKeys);
+          //console.log(nextCardKey);
+          currentCardKey = nextCardKey;
+          showCard(flashcards[nextCardKey]);
+        });
+
+        function giveNextCardKey(availableCardKeys) {
+          for (var i in flashcards) {
+            //console.log(i);
+            if (i > currentCardKey) {
+              return i;
+            }
+          }
+          
+          // if (currentCardKey !== 'undefined') {
+          //     // берем ключ текущей currentCardKey
+          //     // итерируемся по availableCardKeys доходим до текущей
+          //     // возвращаем следующий за ним 
+          //   for (var i = 0; i < availableCardKeys.length; i++) {
+          //       console.log(i);
+          //       console.log(flashcards[availableCardKeys[i]]); 
+          //   }
+          // }   
+        //     return cardKey;
+        }
+
+        function showCard(flashcard) {
           $('#flashcard')
             .find('#question').text(flashcard.question)
-            .end()
-            .find('#answer').text(flashcard.answer);
-
+            .end() //тут поднимаемся к $('#flashcard')
+            .find('#answer').text(flashcard.answer);  
         }
 
       });
