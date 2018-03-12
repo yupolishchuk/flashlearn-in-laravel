@@ -106,9 +106,13 @@
         // по клику показываем следующую карту
         $('#next-button').on('click', function() {
           var nextCardKey = giveNextCardKey(availableCardKeys);
-          //console.log(nextCardKey);
+          console.log(nextCardKey);
           currentCardKey = nextCardKey;
-          showCard(flashcards[nextCardKey]);
+          if (nextCardKey) {
+            showCard(flashcards[nextCardKey]);
+          } else {
+            alert('End, here must be flash messege');
+          }
         });
 
         function giveNextCardKey(availableCardKeys) {
@@ -137,7 +141,7 @@
             .end() //тут поднимаемся к $('#flashcard')
             .find('#answer').text(flashcard.answer);  
         }
-
+        
       });
 
     </script>
