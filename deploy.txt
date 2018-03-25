@@ -1,0 +1,3 @@
+Модуль Baum не генерирует модели, пока не изменишь fire() to handle() in 
+vendor/baum/baum/src/Baum/Console/InstallCommand.php 
+

@@ -30,11 +30,6 @@
 */
 Route::get('/', 'FlashcardsController@index'); // по умолчанию: показываем список
 Route::get('/flashcards/{id}', 'FlashcardsController@show')->where(['id' => '[0-9]']);
-// переписать урлы, добавить параметры
-Route::get('/flashcards/category/learn/{id}', 'FlashcardsController@learning')->where(['id' => '[0-9]']);
-Route::get('/flashcards/category/list/{id}', 'FlashcardsController@list')->where(['id' => '[0-9]']); // ajax response
-
-Route::get('/test', 'FlashcardsController@test');
 
 Route::get('/flashcards/create', 'FlashcardsController@create');
 Route::post('/flashcards/create', 'FlashcardsController@store');
@@ -49,4 +44,12 @@ Route::get('/testdb', 'FlashcardsController@testRawQuery');
 * Categories
 */
 Route::get('/categories', 'CategoriesController@list'); // list of categories
+Route::get('nestedsettest', 'NestedSetsTestController@index');
 
+/*
+* Learning
+*/
+// переписать например так: /learning/cat=10&card=15
+// вынести эти методы из FlashcardsController в LearningController
+Route::get('/flashcards/category/learn/{id}', 'FlashcardsController@learning')->where(['id' => '[0-9]']);
+Route::get('/flashcards/category/list/{id}', 'FlashcardsController@list')->where(['id' => '[0-9]']); // ajax response
