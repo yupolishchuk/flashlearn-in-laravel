@@ -1,0 +1,47 @@
+{
+    "1": {
+        "id": 1,
+        "name": "Root category",
+        "parent_id": null,
+        "lft": 1,
+        "rgt": 8,
+        "depth": 0,
+        "user_id": null,
+        "created_at": "2018-03-28 19:48:14",
+        "updated_at": "2018-03-29 20:18:49",
+        "children": [{
+            "id": 2,
+            "name": "Child1",
+            "parent_id": 1,
+            "lft": 2,
+            "rgt": 3,
+            "depth": 1,
+            "user_id": null,
+            "created_at": "2018-03-28 19:54:37",
+            "updated_at": "2018-03-28 19:54:37",
+            "children": []
+        }, {
+            "id": 4,
+            "name": "Child2",
+            "parent_id": 1,
+            "lft": 4,
+            "rgt": 5,
+            "depth": 1,
+            "user_id": null,
+            "created_at": "2018-03-29 20:18:30",
+            "updated_at": "2018-03-29 20:18:30",
+            "children": []
+        }, {
+            "id": 5,
+            "name": "Child3",
+            "parent_id": 1,
+            "lft": 6,
+            "rgt": 7,
+            "depth": 1,
+            "user_id": null,
+            "created_at": "2018-03-29 20:18:49",
+            "updated_at": "2018-03-29 20:18:49",
+            "children": []
+        }]
+    }
+}

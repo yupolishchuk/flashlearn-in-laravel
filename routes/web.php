@@ -43,8 +43,12 @@ Route::get('/testdb', 'FlashcardsController@testRawQuery');
 /*
 * Categories
 */
-Route::get('/categories', 'CategoriesController@list'); // list of categories
+Route::get('/categories', 'CategoriesController@list'); // Show list of categories
+Route::get('/categories/nestedlist', 'CategoriesController@nestedlist'); // Show nested template list of categories
+Route::get('/categories/givenestedlist', 'CategoriesController@givenestedlist'); // give nested json for ajax request 
 Route::get('nestedsettest', 'NestedSetsTestController@index');
+
+Route::get('/categories/create', 'CategoriesController@create');
 
 /*
 * Learning
