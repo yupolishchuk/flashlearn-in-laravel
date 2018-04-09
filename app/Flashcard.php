@@ -24,9 +24,4 @@ class Flashcard extends Model
       ->get();
       return $flashcards; 
     }
-
-    public function giveNextInCategory($current, $category)
-    {
-
-    }
 }

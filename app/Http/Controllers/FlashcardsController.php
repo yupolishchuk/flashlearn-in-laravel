@@ -28,11 +28,6 @@ class FlashcardsController extends Controller
     //     return view('flashcards.learn', compact('flashcards'));
     // }
 
-    public function learn($id)
-    {
-        return view('flashcards.learn2');
-    }
-
     public function list($id)
     {
         //dd($request);

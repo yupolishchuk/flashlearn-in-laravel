@@ -46,15 +46,22 @@
                   <div class="col-md-3">
                     <button id="edit-button" class="btn btn-info">Edit</button>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-2">
                     <button id="flip-button" class="btn btn-primary">Flip Card</button>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-2">
                     <button id="know-button" class="btn btn-success">Know It</button>
                   </div>
-                  <div class="col-md-3">
-                    <button id="next-button" class="btn btn-primary">Next</button>
-                  </div>
+                  @if($prev)
+                    <div class="col-md-2">
+                      <a href="{{ URL::to( '/learn', $prev->id) }}" id="prev-button" class="btn btn-primary">Prew</a>
+                    </div>
+                      @endif
+                  @if($next)
+                    <div class="col-md-3">
+                      <a href="{{ URL::to( '/learn', $next->id ) }}" id="next-button" class="btn btn-primary">Next</a>
+                    </div>
+                  @endif
                 </div>
               </p>  
             </div>
@@ -73,10 +80,6 @@
       $('#flip-button').on('click', function(){
         $('.question-answer p').toggle();
       });
-
-      $('#next-button').on('click', function(){
-        window.location.replace('/learn/4');
-      })
     </script>
   </body>
 </html>

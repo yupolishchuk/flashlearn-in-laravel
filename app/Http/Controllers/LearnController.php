@@ -9,11 +9,10 @@ class LearnController extends Controller
   public function giveCard($cardId)
   {
     $flashcard = Flashcard::find($cardId);
-    return view('learn.learn', compact('flashcard'));
-  }
-
-  public function giveNextCard($currentCard)
-  {
-
+    $prev = Flashcard::where('id', '<', $cardId)->orderBy('id', 'desc')->first();// это можно сделать рациональнее?
+    $next = Flashcard::where('id', '>', $cardId)->first();
+    return view('learn.learn', compact('flashcard'))
+      ->with('next', $next)
+      ->with('prev', $prev);
   }
 }
