@@ -8,6 +8,9 @@ use App\Category;
 
 class Flashcard extends Model
 {
+    const TYPE_GENERAL = 1;
+    const TYPE_CODE = 2;
+
     public function category()
     {
      // return $this->hasOne('Category');
@@ -20,5 +23,10 @@ class Flashcard extends Model
       ->selectRaw('*')
       ->get();
       return $flashcards; 
+    }
+
+    public function giveNextInCategory($current, $category)
+    {
+
     }
 }

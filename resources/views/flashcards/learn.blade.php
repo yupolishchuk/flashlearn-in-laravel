@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,6 +41,7 @@
               <p id="question" class="lead"></p>
               <p style="display: none" id="answer" class="lead"></p>
               <p class="lead">
+                <hr>
                 <button id="flip-button" class="btn btn-lg btn-secondary">Flip</button>
                 <button id="next-button" class="btn btn-lg btn-secondary">Next</button>
               </p>  

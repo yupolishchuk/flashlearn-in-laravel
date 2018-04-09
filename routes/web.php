@@ -25,10 +25,22 @@
 //     //
 // })->where(['id' => '[0-9]+', 'name' => '[a-z]+']);
 
+
 /*
-* Flashcards
+* Learn
 */
-Route::get('/', 'FlashcardsController@index'); // по умолчанию: показываем список
+// TODO
+// переписать например так: /learning/cat=10&card=15
+// вынести эти методы из FlashcardsController в LearningController
+// учеба: не нужно тянуть сразу все карты, переключаемся на следующую с перезагрузкой страницы
+// Route::get('/flashcards/category/learn/{id}', 'FlashcardsController@learning')->where(['id' => '[0-9]']);
+Route::get('/learn/{id}', 'LearnController@giveCard')->where(['id' => '[0-9]']);
+Route::get('/flashcards/category/list/{id}', 'FlashcardsController@list')->where(['id' => '[0-9]']); // ajax response
+
+/*
+* Flashcards CRUD
+*/
+Route::get('/', 'FlashcardsController@index'); //TODO  по умолчанию: показываем список категорий
 Route::get('/flashcards/{id}', 'FlashcardsController@show')->where(['id' => '[0-9]']);
 
 Route::get('/flashcards/create', 'FlashcardsController@create');
@@ -41,19 +53,11 @@ Route::get('/flashcards/delete/{id}', 'FlashcardsController@delete')->where(['id
 Route::get('/testdb', 'FlashcardsController@testRawQuery');
 
 /*
-* Categories
+* Categories CRUD
 */
 Route::get('/categories', 'CategoriesController@list'); // Show list of categories
 Route::get('/categories/nestedlist', 'CategoriesController@nestedlist'); // Show nested template list of categories
 Route::get('/categories/givenestedlist', 'CategoriesController@givenestedlist'); // give nested json for ajax request 
-Route::get('nestedsettest', 'NestedSetsTestController@index');
+Route::get('/nestedsettest', 'NestedSetsTestController@index');
 
 Route::get('/categories/create', 'CategoriesController@create');
-
-/*
-* Learning
-*/
-// переписать например так: /learning/cat=10&card=15
-// вынести эти методы из FlashcardsController в LearningController
-Route::get('/flashcards/category/learn/{id}', 'FlashcardsController@learning')->where(['id' => '[0-9]']);
-Route::get('/flashcards/category/list/{id}', 'FlashcardsController@list')->where(['id' => '[0-9]']); // ajax response

@@ -12,21 +12,25 @@ class FlashcardsController extends Controller
         // return view('flashcards.index', compact('flashcards'));
         return view('flashcards.index');
     }
-
+    
     public function show($id)
     {
         $flashcard = Flashcard::find($id);
         return view('flashcards.show', compact('flashcard'));
     }
 
-    // Переписать: убрать лишнюю загрузку флешкарт
-    public function learning($id)
-    {
-        //dd($request);
-        //dd(request());
-        $flashcards = Flashcard::all()->where('category_id', $id);
+    // public function learning($id)
+    // {
+    //     //dd($request);
+    //     //dd(request());
+    //     $flashcards = Flashcard::all()->where('category_id', $id);
 
-        return view('flashcards.learn', compact('flashcards'));
+    //     return view('flashcards.learn', compact('flashcards'));
+    // }
+
+    public function learn($id)
+    {
+        return view('flashcards.learn2');
     }
 
     public function list($id)
@@ -53,21 +57,21 @@ class FlashcardsController extends Controller
     {
         if (empty(request('question'))) {
             $flashcard = Flashcard::find($id);
-        return view('flashcards.update', compact('flashcard'));
+            return view('flashcards.update', compact('flashcard'));
         } else {
             $flashcard = Flashcard::find($id);
 
             $flashcard->question = request('question');
             $flashcard->answer = request('answer');
-    
+
             $flashcard->known = 1;
             $flashcard->category_id = 1;
             $flashcard->user_id = 1;
             $flashcard->update();
-    
+
             return redirect('/');
         }
-        
+
     }
 
     // POST /flashcards
