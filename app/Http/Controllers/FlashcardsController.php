@@ -59,9 +59,11 @@ class FlashcardsController extends Controller
             $flashcard->question = request('question');
             $flashcard->answer = request('answer');
 
-            $flashcard->known = 1;
-            $flashcard->category_id = 1;
-            $flashcard->user_id = 1;
+            // TODO
+            // заполнение значений
+            // $flashcard->known = 1;
+            // $flashcard->category_id = 1;
+            // $flashcard->user_id = 1;
             $flashcard->update();
 
             return redirect('/');

@@ -15,4 +15,12 @@ class LearnController extends Controller
       ->with('next', $next)
       ->with('prev', $prev);
   }
+
+  public function updateCard($id)
+  {
+    $flashcard = Flashcard::find($id);
+    $known = $flashcard->known;
+    $flashcard->known = $known + 1;
+    $flashcard->update();
+  }
 }

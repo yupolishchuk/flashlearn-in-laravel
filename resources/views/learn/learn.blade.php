@@ -80,6 +80,15 @@
       $('#flip-button').on('click', function(){
         $('.question-answer p').toggle();
       });
+
+      $('#know-button').on('click', function(){
+        $.ajax({
+          method: "GET",
+          url: "/learn/known/{{ $flashcard->id }}"
+        });
+      })
+
+
     </script>
   </body>
 </html>
