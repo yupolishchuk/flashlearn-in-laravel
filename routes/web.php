@@ -36,7 +36,7 @@ Route::get('/', 'HomeController@index'); //TODO  по умолчанию: пок
 */
 
 // TODO
-// переписать например так: /learning/cat=10&card=15
+// переписать например так: /learn?cat=10&card=15
 // вынести эти методы из FlashcardsController в LearningController
 // учеба: не нужно тянуть сразу все карты, переключаемся на следующую с перезагрузкой страницы
 // Route::get('/flashcards/category/learn/{id}', 'FlashcardsController@learning')->where(['id' => '[0-9]']);

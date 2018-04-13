@@ -13,5 +13,10 @@
   <a href="/flashcards/create">Create Flashlard</a>
   <br>
   <h3>Categories</h3>
+  <ul>
+  @foreach($categories as $category)
+    <li>{{ $category->name }} <a href="/learn?cat={{ $category->id }}">link</a></li>
+  @endforeach
+  </ul>
 </body>
 </html>
