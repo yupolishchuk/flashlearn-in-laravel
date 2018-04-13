@@ -27,8 +27,14 @@
 
 
 /*
+* Home
+*/
+Route::get('/', 'HomeController@index'); //TODO  по умолчанию: показываем список категорий
+
+/*
 * Learn
 */
+
 // TODO
 // переписать например так: /learning/cat=10&card=15
 // вынести эти методы из FlashcardsController в LearningController
@@ -37,12 +43,11 @@
 Route::get('/learn/{id}', 'LearnController@giveCard')->where(['id' => '[0-9]']);
 Route::get('/flashcards/category/list/{id}', 'FlashcardsController@list')->where(['id' => '[0-9]']); // ajax response
 Route::get('/learn/known/{id}', 'LearnController@updateCard')->where(['id' => '[0-9]']);
+
 /*
 * Flashcards CRUD
 */
-Route::get('/', 'FlashcardsController@index'); //TODO  по умолчанию: показываем список категорий
 Route::get('/flashcards/{id}', 'FlashcardsController@show')->where(['id' => '[0-9]']);
-
 Route::get('/flashcards/create', 'FlashcardsController@create');
 Route::post('/flashcards/create', 'FlashcardsController@store');
 
