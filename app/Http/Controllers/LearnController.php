@@ -19,15 +19,14 @@ class LearnController extends Controller
   }
 
   public function learnByCategory($catId=null, $cardId=null) {
-    // echo $cat . ' ' . $cart;
-    // die('hi');
-
-  //   $users = DB::table('users')->where([
-  //     ['status', '=', '1'],
-  //     ['subscribed', '<>', '1'],
-  // ])->get();
-
-    $flashcard = Flashcard::where([
+    if ($cardId == null) {
+      $firstCard = Flashcard::where('category_id', '=', $catId)->first();
+      // dd($firstCard->id);
+      header("Location: /learn/$catId/$firstCard->id");
+      die();
+    }
+    
+      $flashcard = Flashcard::where([
       ['category_id', '=', $catId],
       ['id', '=', $cardId]
       ])->first();
@@ -41,6 +40,7 @@ class LearnController extends Controller
       ['category_id', '=', $catId],
       ['id', '>', $cardId]
     ])->first();
+
     return view('learn.by_category', compact('flashcard'))
       ->with('prev', $prev)
       ->with('next', $next);

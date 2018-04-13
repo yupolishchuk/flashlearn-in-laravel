@@ -39,8 +39,8 @@ Route::get('/', 'HomeController@index'); //TODO  по умолчанию: пок
 // переписать например так: /learn?cat=10&card=15
 // вынести эти методы из FlashcardsController в LearningController
 // учеба: не нужно тянуть сразу все карты, переключаемся на следующую с перезагрузкой страницы
-// Route::get('/flashcards/category/learn/{id}', 'FlashcardsController@learning')->where(['id' => '[0-9]']);
-Route::get('/learn/{id}', 'LearnController@giveCard')->where(['id' => '[0-9]']);
+
+// Route::get('/learn/{id}', 'LearnController@giveCard')->where(['id' => '[0-9]']);//итерируемся через все карты подряд
 Route::get('/learn/{catId}/{cardId?}', 'LearnController@learnByCategory')
   ->where(['catId' => '[0-9]'], ['cardId' => '[0-9]']);
 Route::get('/flashcards/category/list/{id}', 'FlashcardsController@list')->where(['id' => '[0-9]']); // ajax response

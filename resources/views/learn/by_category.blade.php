@@ -8,6 +8,7 @@
 </head>
 <body>
   <h3>Question</h3>
+  {{ $flashcard->id }}
   {{ $flashcard->question }}
   <h3>Answer</h3>
   {{ $flashcard->answer }}
