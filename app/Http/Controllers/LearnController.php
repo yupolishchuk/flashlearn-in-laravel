@@ -6,17 +6,47 @@ use Illuminamte\Http\Request;
 
 class LearnController extends Controller
 {
+  // Итерируемся через все категории подряд
   public function giveCard($cardId)
   {
     $flashcard = Flashcard::find($cardId);
     $prev = Flashcard::where('id', '<', $cardId)->orderBy('id', 'desc')->first();// это можно сделать рациональнее?
     $next = Flashcard::where('id', '>', $cardId)->first();
+
     return view('learn.learn', compact('flashcard'))
       ->with('next', $next)
       ->with('prev', $prev);
   }
 
-  public function updateCard($id)
+  public function learnByCategory($catId=null, $cardId=null) {
+    // echo $cat . ' ' . $cart;
+    // die('hi');
+
+  //   $users = DB::table('users')->where([
+  //     ['status', '=', '1'],
+  //     ['subscribed', '<>', '1'],
+  // ])->get();
+
+    $flashcard = Flashcard::where([
+      ['category_id', '=', $catId],
+      ['id', '=', $cardId]
+      ])->first();
+
+    $prev = Flashcard::where([
+      ['category_id', '=', $catId],
+      ['id', '<', $cardId]
+    ])->orderBy('id', 'desc')->first();
+      
+    $next = Flashcard::where([
+      ['category_id', '=', $catId],
+      ['id', '>', $cardId]
+    ])->first();
+    return view('learn.by_category', compact('flashcard'))
+      ->with('prev', $prev)
+      ->with('next', $next);
+  }
+
+  public function setKnown($id)
   {
     $flashcard = Flashcard::find($id);
     $known = $flashcard->known;

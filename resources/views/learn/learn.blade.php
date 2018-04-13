@@ -56,7 +56,7 @@
                     <div class="col-md-2">
                       <a href="{{ URL::to( '/learn', $prev->id) }}" id="prev-button" class="btn btn-primary">Prew</a>
                     </div>
-                      @endif
+                  @endif
                   @if($next)
                     <div class="col-md-3">
                       <a href="{{ URL::to( '/learn', $next->id ) }}" id="next-button" class="btn btn-primary">Next</a>

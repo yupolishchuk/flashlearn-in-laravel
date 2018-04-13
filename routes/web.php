@@ -41,8 +41,10 @@ Route::get('/', 'HomeController@index'); //TODO  по умолчанию: пок
 // учеба: не нужно тянуть сразу все карты, переключаемся на следующую с перезагрузкой страницы
 // Route::get('/flashcards/category/learn/{id}', 'FlashcardsController@learning')->where(['id' => '[0-9]']);
 Route::get('/learn/{id}', 'LearnController@giveCard')->where(['id' => '[0-9]']);
+Route::get('/learn/{catId}/{cardId?}', 'LearnController@learnByCategory')
+  ->where(['catId' => '[0-9]'], ['cardId' => '[0-9]']);
 Route::get('/flashcards/category/list/{id}', 'FlashcardsController@list')->where(['id' => '[0-9]']); // ajax response
-Route::get('/learn/known/{id}', 'LearnController@updateCard')->where(['id' => '[0-9]']);
+Route::get('/learn/known/{id}', 'LearnController@setKnown')->where(['id' => '[0-9]']);
 
 /*
 * Flashcards CRUD
