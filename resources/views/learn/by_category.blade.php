@@ -20,7 +20,7 @@
   <div class="footer">
     <hr>
     <button id="flip-btn">Flip Card</button>
-    <button>I know it</button>
+    <button id="know-btn">I know it</button>
 
     @if($prev)
       <a href="/learn/{{ $flashcard->category_id }}/{{ $prev->id }}">
@@ -38,6 +38,7 @@
   <script src="/public/js/jquery-3.3.1.js"></script>
   <script>
     $flipBtn = $('#flip-btn');
+    $knowBtn = $('#know-btn');
     $answer = $('#answer');
 
     $flipBtn.on('click', function showAnswer() {
@@ -46,6 +47,13 @@
       } else {
         $answer.hide();
       }
+    });
+
+    $knowBtn.on('click', function setKnow() {
+      $.ajax({
+          method: "GET",
+          url: "/learn/known/{{ $flashcard->id }}"
+        });
     });
 
   </script>
