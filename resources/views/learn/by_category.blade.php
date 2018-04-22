@@ -14,28 +14,25 @@
   <div id="answer" style="display: none">
     <hr>
     <h3>Answer</h3>
-  {{ $flashcard->answer }}
+    {{ $flashcard->answer }}
   </div>
-  
-  
-  @if($prev)
-  <h4>Prev</h4>
-  {{ $prev->id }}
-  {{ $prev->question }}
-  @endif
-
-  @if($next)
-  <h4>Next</h4>
-  {{ $next->id }}
-  {{ $next->question }}
-  @endif
 
   <div class="footer">
     <hr>
     <button id="flip-btn">Flip Card</button>
     <button>I know it</button>
-    <button>Prev</button>
-    <button>Next</button>
+
+    @if($prev)
+      <a href="/learn/{{ $flashcard->category_id }}/{{ $prev->id }}">
+        <button>Prev</button>
+      </a>
+    @endif
+
+    @if($next)
+      <a href="/learn/{{ $flashcard->category_id }}/{{ $next->id }}">
+        <button>Next</button>
+      </a>
+    @endif
   </div>
 
   <script src="/public/js/jquery-3.3.1.js"></script>

@@ -27,8 +27,8 @@ class LearnController extends Controller
     }
     
       $flashcard = Flashcard::where([
-      ['category_id', '=', $catId],
-      ['id', '=', $cardId]
+        ['category_id', '=', $catId],
+        ['id', '=', $cardId]
       ])->first();
 
     $prev = Flashcard::where([
